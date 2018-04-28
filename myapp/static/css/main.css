@@ -1,4 +1,41 @@
 .logo-panel {
     display: flex;
     justify-content: center;
+    margin-top: 15%;
+    align-items: center;
+}
+
+.logo-panel h3 {
+    margin-left: 0.6em;
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:8%;   /* Height of the footer */
+    background:#6cf;
+}
+
+.button {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 77px;
+    height: 32px;
+    box-shadow: 1px 1px 1px black;
+}
+
+#temp {
+    background-color: #3d76d3;
+    border-color: #3d76d3;
+}
+
+#humidity {
+    background-color: #79dd5a;
+    border-color: #79dd5a;
+}
+
+#pressure {
+    background-color: #edef4f;
+    border-color: #edef4f;
 }
