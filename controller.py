@@ -2,6 +2,7 @@ import os
 import tornado.ioloop
 import tornado.web
 import tornado.log
+import time
 
 from jinja2 import \
     Environment, PackageLoader, select_autoescape
@@ -22,7 +23,10 @@ class TemplateHandler(tornado.web.RequestHandler):
 class MainHandler(TemplateHandler):
     def get(self):
         super().get()
-        self.render_template("main.html", {})
+        ts = time.localtime()
+        fmt = '%Y-%m-%d %H:%M'
+        current_time = time.strftime(fmt, ts)
+        self.render_template("main.html", {'current_time': current_time})
 
 def make_app():
     return tornado.web.Application([
