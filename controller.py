@@ -27,10 +27,16 @@ class MainHandler(TemplateHandler):
         fmt = '%Y-%m-%d %H:%M'
         current_time = time.strftime(fmt, ts)
         self.render_template("main.html", {'current_time': current_time})
+        
+class DetailHandler(TemplateHandler):
+    def get(self):
+        super().get()
+        self.render_template("detail_template.html", {})
 
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
+        (r"/detail", DetailHandler),
         (r"/static/(.*)", tornado.web.StaticFileHandler,
         {'path': 'myapp/static'})
         ],
