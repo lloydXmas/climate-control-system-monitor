@@ -1,7 +1,7 @@
 .logo-panel {
     display: flex;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 10%;
     align-items: center;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .carousel-indicators {
-    bottom: -50px;
+    bottom: -30px;
 }
 .carousel-indicators li {
     border: 2px solid black;
