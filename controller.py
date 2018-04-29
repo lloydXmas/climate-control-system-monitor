@@ -3,6 +3,7 @@ import tornado.ioloop
 import tornado.web
 import tornado.log
 import time
+import requests
 
 from jinja2 import \
     Environment, PackageLoader, select_autoescape
@@ -26,7 +27,13 @@ class MainHandler(TemplateHandler):
         ts = time.localtime()
         fmt = '%Y-%m-%d %H:%M'
         current_time = time.strftime(fmt, ts)
-        self.render_template("main.html", {'current_time': current_time})
+# api request setup
+        url = "https://api.thingspeak.com/channels/484266/feeds/last.json"
+        api_key = "YTC5B4LQASSQDSVL"
+        timezone = "America%2FChicago"
+        payload = {'api_key': api_key, 'timezone': timezone}
+        r = requests.get(url, params=payload)
+        self.render_template("main.html", {'current_time': current_time, 'response': r.json()})
         
 class DetailHandler(TemplateHandler):
     def get(self):
