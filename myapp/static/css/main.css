@@ -17,14 +17,6 @@
     background:#6cf;
 }
 
-.button {
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 77px;
-    height: 32px;
-    box-shadow: 1px 1px 1px black;
-}
-
 #temp {
     background-color: #3d76d3;
     border-color: #3d76d3;
@@ -38,4 +30,15 @@
 #pressure {
     background-color: #edef4f;
     border-color: #edef4f;
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+.carousel-indicators li {
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    height: 15px;
+    width: 30px;
 }
