@@ -24,16 +24,13 @@ class TemplateHandler(tornado.web.RequestHandler):
 class MainHandler(TemplateHandler):
     def get(self):
         super().get()
-        ts = time.localtime()
-        fmt = '%Y-%m-%d %H:%M'
-        current_time = time.strftime(fmt, ts)
 # api request setup
         url = "https://api.thingspeak.com/channels/484266/feeds/last.json"
-        api_key = "***REMOVED***"
-        timezone = "America%2FChicago"
+        api_key = "YTC5B4LQASSQDSVL"
+        timezone = "America/Chicago"
         payload = {'api_key': api_key, 'timezone': timezone}
         r = requests.get(url, params=payload)
-        self.render_template("main.html", {'current_time': current_time, 'response': r.json()})
+        self.render_template("main.html", {'response': r.json()})
         
 class DetailHandler(TemplateHandler):
     def get(self):

@@ -1,6 +1,19 @@
 $(document).ready(function(){
-    console.log("OK");
-
+    var apiData = $("#my-data").data()['last'].replace(/'/g, '"');
+    apiData = JSON.parse(apiData);
+    console.log(apiData);
+    var latestTime = apiData['created_at'];
+    latestTime = moment(latestTime).format('YYYY-MM-DD h:mm a');
+    $("#current_time").text(moment().format('YYYY-MM-DD h:mm a'));
+    var field1 = Number(apiData['field1']); 
+    var field2 = Number(apiData['field2']);
+    var field3 = Number(apiData['field3']);
+    var field4 = Number(apiData['field4']);
+    var field5 = Number(apiData['field5']);
+    var field6 = Number(apiData['field6']);
+    var field7 = Number(apiData['field7']);
+    var field8 = Number(apiData['field8']);
+    
 // highcharts setup    
     Highcharts.chart('temp_bar_figure', {
         chart: {
@@ -20,7 +33,7 @@ $(document).ready(function(){
         },
         yAxis: {
             min: 60,
-            max: 80,
+            max: 85,
             title: {
                 text: 'Temperature (°F)',
                 align: 'high'
@@ -37,14 +50,18 @@ $(document).ready(function(){
                 dataLabels: {
                     enabled: true
                 }
-            }
+            },
+            series: {
+            borderColor: '#303030'
+        }
         },
         credits: {
             enabled: false
         },
         series: [{
-            name: "Current",
-            data: [78, 76.5, 75, 72.5]
+            name: `Latest Update: ${latestTime}`,
+            data: [field1, field3, field5, field7],
+            color: '#3d76d3'
         }]
     });
     
@@ -65,8 +82,8 @@ $(document).ready(function(){
             }
         },
         yAxis: {
-            min: 0,
-            max: 100,
+            min: 35,
+            max: 70,
             title: {
                 text: 'Humidity (%)',
                 align: 'high'
@@ -83,61 +100,20 @@ $(document).ready(function(){
                 dataLabels: {
                     enabled: true
                 }
-            }
+            },
+            series: {
+            borderColor: '#303030'
+        }
         },
         credits: {
             enabled: false
         },
         series: [{
-            name: "Current",
-            data: [50, 50.5, 51, 50.5]
+            name: `Latest Update: ${latestTime}`,
+            data: [field2, field4, field6, field8],
+            color: '#79dd5a'
         }]
     }); 
     
-    Highcharts.chart('pressure_bar_figure', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Air Pressure by Room'
-        },
-        subtitle: {
-            text: 'Source: <a href="https://thingspeak.com/channels/484266/shared_view">ThingSpeak Channel</a>'
-        },
-        xAxis: {
-            categories: ['Bedroom', 'Livingroom', 'Kitchen', 'Office'],
-            title: {
-                text: null
-            }
-        },
-        yAxis: {
-            min: 14,
-            max: 15,
-            title: {
-                text: 'Pressure (psi)',
-                align: 'high'
-            },
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' psi '
-        },
-        plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: "Current",
-            data: [14.7, 14.6, 14.8, 14.7]
-        }]
-    });
     
 })
