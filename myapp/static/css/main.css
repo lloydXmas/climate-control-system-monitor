@@ -1,7 +1,7 @@
 .logo-panel {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 8%;
     align-items: center;
 }
 
@@ -16,6 +16,7 @@
     height:6%;   /* Height of the footer */
     background:#6cf;
     left: 0;
+    right: 0;
 }
 
 #temp {
@@ -36,10 +37,19 @@
 .carousel-indicators {
     bottom: -30px;
 }
+
 .carousel-indicators li {
     border: 2px solid black;
     border-radius: 5px;
     box-shadow: 1px 1px 1px black;
     height: 15px;
     width: 30px;
+}
+
+#info-panel {
+    margin-top: -20px;    
+}
+
+#myCarousel {
+    margin-top: -20px;
 }
