@@ -13,8 +13,9 @@
     position:absolute;
     bottom:0;
     width:100%;
-    height:8%;   /* Height of the footer */
+    height:6%;   /* Height of the footer */
     background:#6cf;
+    left: 0;
 }
 
 #temp {
