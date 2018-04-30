@@ -21,6 +21,31 @@ The project consists of minimal hardware and full stack deployment of Python/Jav
 - [ ] Create a mobile friendly front-end.
 - [ ] Create more complex Javascript functions to analyze historical temperatures logs and predict home climate or further quantify temperature deviations.
 
+## Installation
+The project uses [Pipenv](https://github.com/pypa/pipenv) to manage following Python libraries in a virtualenv:
+```
+$  pipenv install requests tornado queries jinja2
+```
+
+An SQL database needs to be setup with columns for datetime and each additional field of sensor data. For example:
+```
+CREATE TABLE home_monitor (
+  id SERIAL NOT NULL PRIMARY KEY,
+  created TIMESTAMP WITH TIME ZONE,
+  bedroom_temp NUMERIC,
+  bedroom_humidity NUMERIC,
+  livingroom_temp NUMERIC,
+  livingroom_humidity NUMERIC
+);
+```
+
+The Python script at `cron_jobs/get_latest.py` is run every 30 minutes by adding the following job to crontab:
+```
+*/30 * * * * cd /home/username/climate-control-system-monitor && /path/to/pipenv run python3 cron_jobs/get_latest.py
+```
+where `get_latest.py` and `pipenv` are full paths
+
+
 ## Built With
 ![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![github icon](readme-img/github.png) GitHub &nbsp;|&nbsp; ![heroku icon](readme-img/heroku.png) Heroku
 
