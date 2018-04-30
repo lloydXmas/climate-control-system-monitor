@@ -1,5 +1,10 @@
 # Home Climate Control Monitor
 
+<p align="center">
+<img src="https://github.com/lloydXmas/climate-control-system-monitor/blob/master/readme-img/logo.png" width=300 />
+</p>
+
+
 _Do you feel like a certain rooms in your home are always much warmer/cooler than the rest of the house?_<br />
 _Want to know how effective your HVAC system is at maintaining a specific temperature in the summer or winter?_
 
