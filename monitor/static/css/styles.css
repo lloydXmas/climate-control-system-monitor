@@ -47,9 +47,22 @@
 }
 
 #info-panel {
-    margin-top: -20px;    
+    margin-top: -20px;
 }
 
 #myCarousel {
     margin-top: -20px;
+}
+
+/*** Detail Page ***/
+
+.detail {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.detail h6 {
+  margin-left: 0.6em;
 }
