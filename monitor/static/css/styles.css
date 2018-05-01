@@ -54,6 +54,44 @@
     margin-top: -20px;
 }
 
+.upper-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blocktest {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    margin-right: 0.3em;
+}
+
+.legends {
+   list-style: none;
+   margin-left: 0;
+   padding-left: 1em;
+   text-indent: -1em;
+}
+
+.legends li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 0.1em;
+}
+
+.highest {
+    background-color: #ff7800;
+}
+
+.middle {
+    background-color: #8aff00;
+}
+
+.lowest {
+    background-color: #00d4ff;
+}
 /*** Detail Page ***/
 
 .detail {

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Main{% endblock %}
-
+{% block meta %}
+<meta id="my-data" data-last="{{ response }}">
+{% endblock %}
 {% block content %}
 <div class="container text-center">
 	<div class="logo-panel">
@@ -20,6 +22,7 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div>
+					  <div class="upper-panel">
 						<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
             <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
               <g>
@@ -44,11 +47,20 @@
               </g>
               </g>
             </svg>
+            <div>
+              <ul class="legends">
+                <li><div class="blocktest highest"></div>Highest</li>
+                <li><div class="blocktest middle"></div></li>
+                <li><div class="blocktest lowest"></div>Lowest</li>
+              </ul>
+            </div>
+            </div>
 						<div id="temp_bar_figure" style="min-width: 310px; max-width: 650px; height: 250px; margin: 0 auto"></div>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div>
+					  <div class="upper-panel">
 						<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
               <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
               <g>
@@ -73,6 +85,14 @@
               </g>
               </g>
             </svg>
+            <div>
+              <ul class="legends">
+                <li><div class="blocktest highest"></div>Highest</li>
+                <li><div class="blocktest middle"></div></li>
+                <li><div class="blocktest lowest"></div>Lowest</li>
+              </ul>
+              </div>
+            </div>
 						<div id="humidity_bar_figure" style="min-width: 310px; max-width: 650px; height: 250px; margin: 0 auto"></div>
 					</div>
 				</div>
@@ -99,8 +119,8 @@
 
 {% block dependencies %}
 <script src="/static/js/highcharts.js"></script>
-<script src="/static/js/modules/exporting.js"></script>
-<script src="/static/js/modules/export-data.js"></script>
+<script src="/static/js/highchart_modules/exporting.js"></script>
+<script src="/static/js/highchart_modules/export-data.js"></script>
 <script src="/static/js/moment.min.js"></script>
 <script src="/static/js/main_charts.js"></script>
 {% endblock %}
