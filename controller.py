@@ -9,7 +9,7 @@ from jinja2 import \
     Environment, PackageLoader, select_autoescape
 
 ENV = Environment(
-    loader=PackageLoader('myapp', 'templates'),
+    loader=PackageLoader('monitor', 'templates'),
     autoescape=select_autoescape(['html', 'xml']))
     
 class TemplateHandler(tornado.web.RequestHandler):
@@ -42,7 +42,7 @@ def make_app():
         (r"/", MainHandler),
         (r"/detail", DetailHandler),
         (r"/static/(.*)", tornado.web.StaticFileHandler,
-        {'path': 'myapp/static'})
+        {'path': 'monitor/static'})
         ],
         autoreload=True)
 
