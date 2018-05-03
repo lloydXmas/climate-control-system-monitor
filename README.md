@@ -63,4 +63,5 @@ where `get_latest.py` and `pipenv` are full paths
 ### Hardware:
 - [Adafruit ESP8266](https://www.adafruit.com/product/2821)
 - [Bosch Sensortec BME280](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266?view=all)
+- [Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 
