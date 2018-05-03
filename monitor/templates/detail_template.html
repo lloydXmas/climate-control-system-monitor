@@ -1,31 +1,37 @@
-{% extends "base.html" %}
-{% block title %}Details{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Details{% endblock %} {% block meta %}
+<meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}"> {% endblock %} {% block content %}
 <div class="container text-center">
-	<div class=" detail-footer logo-panel">
-		<img alt="logo" src="http://via.placeholder.com/30x30">
-		<h6>Home Climate</h6>
+	<div class="detail-nav">
+	<div class="detail-logo">
+		<img alt="logo" src="/static/images/logo.png" width="40" height="40">
+		<h5>Home Climate Monitor</h5>
 	</div>
-	<hr>
-	<div>
-		<div>
-			<p>room1</p>
-			<p>date</p>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/detail/bedroom/2018-05-01">Bedroom</a></li>
+		<li><a href="/detail/livingroom/2018-05-01">Livingroom</a></li>
+		<li><a href="/detail/office/2018-05-01">Office</a></li>
+		<li><a href="/detail/kitchen/2018-05-01">Kitchen</a></li>
+	</ul>
+	</div>
+	<div class="detail-figure">
+		<div class="container detail-info">
+			<h6>{{ slug|capitalize }}</h6>
+			<h6>{{ date }}</h6>
 		</div>
-		<div>
-			<img alt="house blueprint temp" src="http://via.placeholder.com/350x350">
-		</div>
+		<div id="{{ slug + '_detail' }}" style="min-width: 310px; max-width: 650px; height: 360px; margin: 0 auto"></div>
 	</div>
 </div>
-{% endblock %}
-
-{% block footer %}
+<div class="container detail-control-panel">
+	<span>&#8678;</span>
+</div>
+{% endblock %} {% block footer %}
 <footer class="container text-center footer" id="footer">
 	footer
 </footer>
-{% endblock %}
-
-{% block dependencies %}
-<script src="static/js/main_charts.js"></script>
+{% endblock %} {% block dependencies %}
+<script src="/static/js/highcharts.js"></script>
+<script src="/static/js/highchart_modules/exporting.js"></script>
+<script src="/static/js/highchart_modules/export-data.js"></script>
+<script src="/static/js/detail_charts.js"></script>
 {% endblock %}
