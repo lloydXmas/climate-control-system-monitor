@@ -10,7 +10,7 @@ session = queries.Session("postgresql://postgres@localhost:5432/home_mon")
 results = session.query("SET timezone='America/Chicago'")
 
 # Request last update to feeds
-payload = {'api_key': 'XXXXXXXXXX', 'timezone': 'America/Chicago'}
+payload = {'api_key': 'XXXXXXX', 'timezone': 'America/Chicago'}
 r = requests.get('https://api.thingspeak.com/channels/484266/feeds/last.json', params=payload)
 data = r.json()
 
@@ -42,48 +42,30 @@ results = session.query(
 filename = 'api_data.json'
 jdata = []
 
-def decToStr(o):
-    d = str(decimal.Decimal(o))
-    return d
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, decimal.Decimal):
+            return float(o)
+        return super(DecimalEncoder, self).default(o)
 
-if os.path.exists(filename):
-    results = session.query('SELECT created, bedroom_temp, bedroom_humidity, livingroom_temp, livingroom_humidity, kitchen_temp, kitchen_humidity, office_temp, office_humidity FROM home_mon ORDER BY created DESC LIMIT 1').items()
-    mode = 'a'
-    for row in results:
-        tmpDatetime = row['created']
-        tmpDatetime = tmpDatetime.replace(tzinfo=None).isoformat()
-        rdata = {
-        'created': tmpDatetime,
-        'bedroom_temp': decToStr(row['bedroom_temp']),
-        'bedroom_humidity': decToStr(row['bedroom_humidity']),
-        'livingroom_temp': decToStr(row['livingroom_temp']),
-        'livingroom_humidity': decToStr(row['livingroom_humidity']),
-        'kitchen_temp': decToStr(row['kitchen_temp']),
-        'kitchen_humidity': decToStr(row['kitchen_humidity']),
-        'office_temp': decToStr(row['office_temp']),
-        'office_humidity': decToStr(row['office_humidity'])
-        }
-        jdata.append(rdata)
-else:
-    results = session.query('SELECT created, bedroom_temp, bedroom_humidity, livingroom_temp, livingroom_humidity, kitchen_temp, kitchen_humidity, office_temp, office_humidity FROM home_mon ORDER BY created DESC').items()
-    mode = 'w'
-    for row in results:
-        tmpDatetime = row['created']
-        tmpDatetime = tmpDatetime.replace(tzinfo=None).isoformat()
-        rdata = {
-        'created': tmpDatetime,
-        'bedroom_temp': decToStr(row['bedroom_temp']),
-        'bedroom_humidity': decToStr(row['bedroom_humidity']),
-        'livingroom_temp': decToStr(row['livingroom_temp']),
-        'livingroom_humidity': decToStr(row['livingroom_humidity']),
-        'kitchen_temp': decToStr(row['kitchen_temp']),
-        'kitchen_humidity': decToStr(row['kitchen_humidity']),
-        'office_temp': decToStr(row['office_temp']),
-        'office_humidity': decToStr(row['office_humidity'])
-        }
-        jdata.append(rdata)
+results = session.query('SELECT created, bedroom_temp, bedroom_humidity, livingroom_temp, livingroom_humidity, kitchen_temp, kitchen_humidity, office_temp, office_humidity FROM home_mon ORDER BY created DESC').items()
+for row in results:
+    tmpDatetime = row['created']
+    tmpDatetime = tmpDatetime.replace(tzinfo=None).isoformat()
+    rdata = {
+    'created': tmpDatetime,
+    'bedroom_temp': row['bedroom_temp'],
+    'bedroom_humidity': row['bedroom_humidity'],
+    'livingroom_temp': row['livingroom_temp'],
+    'livingroom_humidity': row['livingroom_humidity'],
+    'kitchen_temp': row['kitchen_temp'],
+    'kitchen_humidity': row['kitchen_humidity'],
+    'office_temp': row['office_temp'],
+    'office_humidity': row['office_humidity']
+    }
+    jdata.append(rdata)
 
-output = json.dumps(jdata)
-file_handle = open('api_data.json', mode)
+output = json.dumps(jdata, cls=DecimalEncoder)
+file_handle = open('../monitor/static/js/api_data.json', 'w', encoding='utf-8')
 file_handle.write(output)
 file_handle.close()

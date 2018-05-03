@@ -56,6 +56,7 @@
             </div>
             </div>
 						<div id="temp_bar_figure" style="min-width: 310px; max-width: 650px; height: 250px; margin: 0 auto"></div>
+						<div id="temp_line_chart" style="width:80%; height:450px; margin: 0 auto"></div>
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -118,9 +119,10 @@
 {% endblock %}
 
 {% block dependencies %}
-<script src="/static/js/highcharts.js"></script>
+<script src="/static/js/highstock.js"></script>
 <script src="/static/js/highchart_modules/exporting.js"></script>
 <script src="/static/js/highchart_modules/export-data.js"></script>
 <script src="/static/js/moment.min.js"></script>
 <script src="/static/js/main_charts.js"></script>
+<script src="/static/js/line_chart.js"></script>
 {% endblock %}
