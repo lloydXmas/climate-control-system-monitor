@@ -119,13 +119,14 @@ $(document).ready(function(){
     function compareData(arr) {
         arr.sort(function(a,b){
             return a['value'] - b['value'];
-        })
+        });
+        console.log(arr);
         $(arr[0]['dom']).css('fill', '#00d4ff');
         $(arr[arr.length-1]['dom']).css('fill', '#ff7800');
         var rest = arr.slice(1, arr.length-1);
         rest.forEach(function (item) {
             $(item['dom']).css('fill', '#8aff00');
-        })
+        });
     }
     compareData([field1, field3, field5, field7]);
     compareData([field2, field4, field6, field8]);
