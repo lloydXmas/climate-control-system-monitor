@@ -12,8 +12,8 @@ Home CC Monitor is a real-time IoT monitoring application for home climates that
 
 -----
 ## Minimum Viable Product
-- [ ] Maintain a database of organized temperature data from an API feed which is displayed on the front-end.
-- [ ] Visualization of current temperature data per room.
+- [X] Maintain a database of organized temperature data from an API feed which is displayed on the front-end.
+- [X] Visualization of current temperature data per room.
 - [ ] Visualization of historical temperature data.
 
 The project consists of minimal hardware and full stack deployment of Python/Javascript/jQuery/PostgreSQL.
