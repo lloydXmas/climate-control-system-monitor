@@ -48,7 +48,7 @@ class DecimalEncoder(json.JSONEncoder):
             return float(o)
         return super(DecimalEncoder, self).default(o)
 
-results = session.query('SELECT created, bedroom_temp, bedroom_humidity, livingroom_temp, livingroom_humidity, kitchen_temp, kitchen_humidity, office_temp, office_humidity FROM home_mon ORDER BY created DESC').items()
+results = session.query('SELECT created, bedroom_temp, bedroom_humidity, livingroom_temp, livingroom_humidity, kitchen_temp, kitchen_humidity, office_temp, office_humidity FROM home_mon ORDER BY created ASC').items()
 for row in results:
     tmpDatetime = row['created']
     tmpDatetime = tmpDatetime.replace(tzinfo=None).isoformat()

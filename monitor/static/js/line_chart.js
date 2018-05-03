@@ -22,9 +22,19 @@ $(document).ready(function() {
     			fontWeight: 'bold'
     		}
     	},
-    	buttons: [{ type: 'day', count: 1, text: 'day' }, 
-    	{ type: 'week', count: 1, text: 'week' }, 
+    	buttons: [{ type: 'hour', count: 12, text: '12hrs' },
+    	{ type: 'day', count: 1, text: 'day' }, 
+    	{ type: 'day', count: 7, text: 'week' }, 
     	{ type: 'all', text: 'All', }],
+        },
+        navigator: {
+            enabled: false
+        },
+        scrollbar: {
+            enabled: false
+        },
+        exporting: {
+        enabled: false
         },
 		xAxis: {
 			type: 'datetime',
@@ -38,9 +48,10 @@ $(document).ready(function() {
 		},
 		yAxis: [{
 			gridLineWidth: 1,
+            opposite: false,
 			type: 'line',
-			min: 65,
-			max: 85,
+			min: 68,
+			max: 83,
 			endOnTick: false,
 			maxPadding: 5,
 			tickInterval: 5,
@@ -51,9 +62,7 @@ $(document).ready(function() {
 				format: '{value}°F',
 				style: {
 					color: Highcharts.getOptions().colors[0]
-				},
-				x: 25,
-				y: 0,
+				}
 			},
 			title: {
 				text: 'Temperature',
@@ -62,7 +71,7 @@ $(document).ready(function() {
 					fontSize: '15px',
 					fontWeight: 'bold'
 				},
-				margin: 40,
+				
 			}
 		}],
 		series: [{
