@@ -10,7 +10,7 @@ session = queries.Session("postgresql://postgres@localhost:5432/home_mon")
 results = session.query("SET timezone='America/Chicago'")
 
 # Request last update to feeds
-payload = {'api_key': '1Y9G9090EIIX3989', 'timezone': 'America/Chicago'}
+payload = {'api_key': 'XXXXXXX', 'timezone': 'America/Chicago'}
 r = requests.get('https://api.thingspeak.com/channels/484266/feeds/last.json', params=payload)
 data = r.json()
 
