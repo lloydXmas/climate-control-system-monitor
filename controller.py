@@ -32,11 +32,11 @@ class MainHandler(TemplateHandler):
         super().get()
 # api request setup
         url = "https://api.thingspeak.com/channels/484266/feeds/last.json"
-        api_key = "YTC5B4LQASSQDSVL"
+        api_key = os.environ.get('ThingSpeak_API_KEY')
         timezone = "America/Chicago"
         payload = {'api_key': api_key, 'timezone': timezone}
         r = requests.get(url, params=payload)
-        appid = '9ecc560e5c99c8be650566914f4192e6'
+        appid = os.environ.get('OpenWeather_APPID')
         weather_url = 'http://api.openweathermap.org/data/2.5/weather'
         weather_payload = {'q': 'Houston', 'appid': appid, 'units': 'imperial'}
         r_weather = requests.get(weather_url, params=weather_payload)
