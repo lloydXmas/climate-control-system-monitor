@@ -3,6 +3,7 @@ import tornado.ioloop
 import tornado.web
 import tornado.log
 import time
+from datetime import datetime, date, timedelta
 import requests
 import queries
 
@@ -31,11 +32,16 @@ class MainHandler(TemplateHandler):
         super().get()
 # api request setup
         url = "https://api.thingspeak.com/channels/484266/feeds/last.json"
-        api_key = "YTC5B4LQASSQDSVL"
+        api_key = os.environ.get('ThingSpeak_API_KEY')
         timezone = "America/Chicago"
         payload = {'api_key': api_key, 'timezone': timezone}
         r = requests.get(url, params=payload)
-        self.render_template("main.html", {'response': r.json()})
+        appid = os.environ.get('OpenWeather_APPID')
+        weather_url = 'http://api.openweathermap.org/data/2.5/weather'
+        weather_payload = {'q': 'Houston', 'appid': appid, 'units': 'imperial'}
+        r_weather = requests.get(weather_url, params=weather_payload)
+        local_weather = r_weather.json()['main']['temp']
+        self.render_template("main.html", {'response': r.json(), 'local_weather': local_weather})
 
 # after searching online, I've found dynamic SQL query is risky and a bad practice, so not use here
 class DetailHandler(TemplateHandler):
@@ -43,6 +49,11 @@ class DetailHandler(TemplateHandler):
         super().get()
         fieldTemp = "{}_temp".format(slug)
         fieldHumi = "{}_humidity".format(slug)
+        fmt = '%Y-%m-%d'       
+        ts = time.strptime(date, fmt)
+        dt = datetime.fromtimestamp(time.mktime(ts))
+        yesterday = (dt - timedelta(1)).strftime(fmt)
+        tomorrow = (dt + timedelta(1)).strftime(fmt)
         if slug == 'bedroom':
             details = self.session.query('''SELECT created::time, bedroom_temp, bedroom_humidity FROM home_mon WHERE created::date = %(date)s ORDER BY created ASC ''', {'date': date})
         elif slug == 'livingroom':
@@ -57,7 +68,7 @@ class DetailHandler(TemplateHandler):
         for detail in details:
             temps.append(float(detail[fieldTemp]))
             humis.append(float(detail[fieldHumi]))
-        self.render_template("detail_template.html", {'slug': slug, 'temps': temps, 'humis': humis, 'date': date})
+        self.render_template("detail_template.html", {'slug': slug, 'temps': temps, 'humis': humis, 'date': date, 'yesterday': yesterday, 'tomorrow': tomorrow})
     
 
 def make_app():
