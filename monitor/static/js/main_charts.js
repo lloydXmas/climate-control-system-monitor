@@ -19,6 +19,9 @@ $(document).ready(function(){
         chart: {
             type: 'bar'
         },
+        exporting: {
+        enabled: false
+        },
         title: {
             text: 'Temperature by Room'
         },

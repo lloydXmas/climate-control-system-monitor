@@ -9,6 +9,10 @@
     margin-left: 0.6em;
 }
 
+svg rect:hover {
+    cursor: pointer;
+}
+
 #footer {
     bottom:0;
     width:100%;
