@@ -10,7 +10,8 @@ session = queries.Session("postgresql://postgres@localhost:5432/home_mon")
 results = session.query("SET timezone='America/Chicago'")
 
 # Request last update to feeds
-payload = {'api_key': 'XXXXXXX', 'timezone': 'America/Chicago'}
+api_get_key = os.environ.get('ThingSpeak_API_KEY')
+payload = {'api_key': api_get_key, 'timezone': 'America/Chicago'}
 r = requests.get('https://api.thingspeak.com/channels/484266/feeds/last.json', params=payload)
 data = r.json()
 
@@ -39,7 +40,6 @@ results = session.query(
     })
 
 # Generate JSON by serializing all data from db
-filename = 'api_data.json'
 jdata = []
 
 class DecimalEncoder(json.JSONEncoder):
@@ -66,6 +66,6 @@ for row in results:
     jdata.append(rdata)
 
 output = json.dumps(jdata, cls=DecimalEncoder)
-file_handle = open('../monitor/static/js/api_data.json', 'w', encoding='utf-8')
+file_handle = open('monitor/static/json/api_data.json', 'w', encoding='utf-8')
 file_handle.write(output)
 file_handle.close()
