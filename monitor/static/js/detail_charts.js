@@ -101,15 +101,18 @@ $(document).ready(function() {
     console.log(today);
     console.log(moment().format('YYYY-MM-DD'));
     if (today == moment().format('YYYY-MM-DD')) {
-        $('#next').click(function(e) {
-            e.preventDefault();
-            $('#next').attr('title', "It's the newest already");
-});
+            $('#next').css('visibility', "hidden");
+
     }
     else if (today == '2018-04-30') {
-        $('#previous').click(function(e) {
-            e.preventDefault();
-            $('#previous').attr('title', "No more data");
-});
+            $('#previous').css('visibility', "hidden");
     }
+// add hover effect for control buttons    
+    $(".button-control").hover(function(){
+        $(this).find("h6").css("text-shadow", "1px 1px 1px orange");
+    },
+        function() {
+            $(this).find("h6").css("text-shadow", "0 0 0 white");
+        }
+    );
 });
