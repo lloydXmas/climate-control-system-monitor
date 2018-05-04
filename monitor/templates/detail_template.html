@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}Details{% endblock %} {% block meta %}
-<meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}"> {% endblock %} {% block content %}
+<meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}" data-date="{{ date }}"> {% endblock %} {% block content %}
 <div class="container text-center">
 	<div class="detail-nav">
 	<div class="detail-logo">
@@ -23,7 +23,8 @@
 	</div>
 </div>
 <div class="container detail-control-panel">
-	<span>&#8678;</span>
+	<span><a id="previous" href="/detail/{{ slug }}/{{ yesterday }}">&#8678;</a></span>
+	<span><a id="next" href="/detail/{{ slug }}/{{ tomorrow }}">&#x21E8;</a></span>
 </div>
 {% endblock %} {% block footer %}
 <footer class="container text-center footer" id="footer">
@@ -33,5 +34,6 @@
 <script src="/static/js/highcharts.js"></script>
 <script src="/static/js/highchart_modules/exporting.js"></script>
 <script src="/static/js/highchart_modules/export-data.js"></script>
+<script src="/static/js/moment.min.js"></script>
 <script src="/static/js/detail_charts.js"></script>
 {% endblock %}

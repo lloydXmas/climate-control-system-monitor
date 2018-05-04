@@ -5,10 +5,6 @@ $(document).ready(function() {
     console.log(detail_temps);
     console.log(detail_humis);
     
-    // for ( let i = 0; i < detail_data.length; i ++) {
-    //     console.log(detail_data[i]);
-    // }
-    // draw highcharts    
     function drawChart(id, temp, humidity) {
         Highcharts.chart(id, {
             chart: {
@@ -19,6 +15,9 @@ $(document).ready(function() {
             },
             subtitle: {
                 text: 'Source: <a href="https://thingspeak.com/channels/484266/shared_view">ThingSpeak Channel</a>'
+            },
+            exporting: {
+            enabled: false
             },
             xAxis: [{
                 categories: ['00:00','00:30','01:00','01:30','02:00','02:30','03:00','03:30','04:00','04:30','05:00','05:30','06:00','06:30','07:00','07:30','08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30','22:00','22:30','23:00','23:30'],
@@ -96,5 +95,21 @@ $(document).ready(function() {
 
     drawChart(figure_id, detail_temps, detail_humis);
 
-
+// if it's the last day with data, prev button is disabled; if it's already today, next button is disabled
+    
+    var today = $("#detail-data").data()['date'];
+    console.log(today);
+    console.log(moment().format('YYYY-MM-DD'));
+    if (today == moment().format('YYYY-MM-DD')) {
+        $('#next').click(function(e) {
+            e.preventDefault();
+            $('#next').attr('title', "It's the newest already");
+});
+    }
+    else if (today == '2018-04-30') {
+        $('#previous').click(function(e) {
+            e.preventDefault();
+            $('#previous').attr('title', "No more data");
+});
+    }
 });

@@ -3,6 +3,7 @@ import tornado.ioloop
 import tornado.web
 import tornado.log
 import time
+from datetime import datetime, date, timedelta
 import requests
 import queries
 
@@ -43,6 +44,11 @@ class DetailHandler(TemplateHandler):
         super().get()
         fieldTemp = "{}_temp".format(slug)
         fieldHumi = "{}_humidity".format(slug)
+        fmt = '%Y-%m-%d'       
+        ts = time.strptime(date, fmt)
+        dt = datetime.fromtimestamp(time.mktime(ts))
+        yesterday = (dt - timedelta(1)).strftime(fmt)
+        tomorrow = (dt + timedelta(1)).strftime(fmt)
         if slug == 'bedroom':
             details = self.session.query('''SELECT created::time, bedroom_temp, bedroom_humidity FROM home_mon WHERE created::date = %(date)s ORDER BY created ASC ''', {'date': date})
         elif slug == 'livingroom':
@@ -57,7 +63,7 @@ class DetailHandler(TemplateHandler):
         for detail in details:
             temps.append(float(detail[fieldTemp]))
             humis.append(float(detail[fieldHumi]))
-        self.render_template("detail_template.html", {'slug': slug, 'temps': temps, 'humis': humis, 'date': date})
+        self.render_template("detail_template.html", {'slug': slug, 'temps': temps, 'humis': humis, 'date': date, 'yesterday': yesterday, 'tomorrow': tomorrow})
     
 
 def make_app():
