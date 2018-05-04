@@ -9,7 +9,7 @@ $(document).ready(function() {
 		},
 		rangeSelector: {
     	allButtonsEnabled: false,
-    	inputEnabled: false,
+    	inputEnabled: true,
     	selected: 1,
     	buttonTheme: {
     		fill: 'none',
@@ -34,7 +34,7 @@ $(document).ready(function() {
             enabled: false
         },
         exporting: {
-        enabled: false
+        enabled: true
         },
 		xAxis: {
 			type: 'datetime',
