@@ -16,8 +16,8 @@ svg rect:hover {
 #footer {
     bottom:0;
     width:100%;
-    height:6%;   /* Height of the footer */
-    background:#6cf;
+    height:4rem;   /* Height of the footer */
+    /*background:#6cf;*/
     left: 0;
     right: 0;
 }
