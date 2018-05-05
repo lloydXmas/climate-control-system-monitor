@@ -1,3 +1,4 @@
+
 {% extends "base.html" %} 
 {% block title %}{{ slug|capitalize }}{% endblock %} 
 {% block meta %}
@@ -5,6 +6,7 @@
 {% endblock %}
 {% block content %}
 <div id="detail-content">
+
 	<div class="detail-figure">
 		<div class="container detail-info">
 			<h6>{{ slug|capitalize }}</h6>
@@ -12,9 +14,11 @@
 		</div>
 		<div id="{{ slug + '_detail' }}" style="min-width: 310px; max-width: 650px; height: 360px; margin: 0 auto"></div>
 	</div>
+
 	<a class="button-control" id="previous" href="/detail/{{ slug }}/{{ yesterday }}"><h6>Previous Day</h6><i class="fas fa-chevron-left"></i></a>
   	<a class="button-control" id="next" href="/detail/{{ slug }}/{{ tomorrow }}"><h6>Next Day</h6><i class="fas fa-chevron-right"></i></a>
 </div>
+
 
 {% endblock %}  
 {% block dependencies %}

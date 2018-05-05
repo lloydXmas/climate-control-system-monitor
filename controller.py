@@ -39,7 +39,7 @@ class MainHandler(TemplateHandler):
         appid = os.environ.get('OpenWeather_APPID')
         weather_url = 'http://api.openweathermap.org/data/2.5/weather'
         weather_payload = {'q': 'Houston', 'appid': appid, 'units': 'imperial'}
-        r_weather = requests.get(weather_url, params=weather_payload)
+        r_weather = requests.get(weather_url, params=weather_payload)       
         local_weather = r_weather.json()['main']['temp']
         self.render_template("main.html", {'response': r.json(), 'local_weather': local_weather})
 

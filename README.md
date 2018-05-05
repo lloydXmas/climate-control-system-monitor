@@ -14,12 +14,12 @@ Home CC Monitor is a real-time IoT monitoring application for home climates that
 ## Minimum Viable Product
 - [X] Maintain a database of organized temperature data from an API feed which is displayed on the front-end.
 - [X] Visualization of current temperature data per room.
-- [ ] Visualization of historical temperature data.
+- [X] Visualization of historical temperature data.
 
 The project consists of minimal hardware and full stack deployment of Python/Javascript/jQuery/PostgreSQL.
 
 ## Stretch Goals
-- [ ] Compare overall data to local weather conditions using a local weather API.
+- [X] Compare overall data to local weather conditions using a local weather API.
 - [ ] Create customizable alerts for rooms that exceed or fall below set values.
   - [ ] Integrate alerts with IFTTT Service
 - [ ] Make the application scalable using unique ID’s and passwords for multiple users.
@@ -29,8 +29,9 @@ The project consists of minimal hardware and full stack deployment of Python/Jav
 ## Installation
 The project uses [Pipenv](https://github.com/pypa/pipenv) to manage following Python libraries in a virtualenv:
 ```
-$  pipenv install requests tornado queries jinja2
+$  pipenv install requests tornado queries jinja2 arrow
 ```
+We chose to use [ThingSpeak's](https://thingspeak.com) REST API service to publish and retrieve data. An API Key is needed to make GET and POST requests to a private channel. Documentation can be found [here](https://www.mathworks.com/help/thingspeak/rest-api.html).
 
 An SQL database needs to be setup with columns for datetime and each additional field of sensor data. For example:
 ```
@@ -48,20 +49,20 @@ The Python script at `cron_jobs/get_latest.py` is run every 30 minutes by adding
 ```
 */30 * * * * cd /home/username/climate-control-system-monitor && /path/to/pipenv run python3 cron_jobs/get_latest.py
 ```
-where `get_latest.py` and `pipenv` are full paths
+where `get_latest.py` and `pipenv` are full paths. The script retrieves updated data from ThingSpeak's API, inserts it into the database, and generates a JSON file in the `monitor/static/json/ directory` 
 
 
 ## Built With
-![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![github icon](readme-img/github.png) GitHub &nbsp;|&nbsp; ![heroku icon](readme-img/heroku.png) Heroku
+![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![NGINX](readme-img/NGINX.png) NGINX &nbsp;|&nbsp; ![matlab icon](readme-img/matlab.png) ThingSpeak
 
 ![html5 icon](readme-img/html5.png) HTML5 &nbsp;|&nbsp;  ![javascript icon](readme-img/javascript.png) JavaScript &nbsp;|&nbsp; ![jinja icon](readme-img/jinja.png) Jinja2 &nbsp;|&nbsp; ![jquery icon](readme-img/jquery.png) jQuery
 
-![matlab icon](readme-img/matlab.png) ThingSpeak &nbsp;|&nbsp; ![postgresql icon](readme-img/postgresql.png) PostgreSQL &nbsp;|&nbsp; ![python icon](readme-img/python.png) Python 3 &nbsp;|&nbsp; ![tornado icon](readme-img/tornado.png) Tornado
+![Highcharts icon](readme-img/Highcharts.png) Highcharts &nbsp;|&nbsp; ![postgresql icon](readme-img/postgresql.png) PostgreSQL &nbsp;|&nbsp; ![python icon](readme-img/python.png) Python 3 &nbsp;|&nbsp; ![tornado icon](readme-img/tornado.png) Tornado
 
 -----
 
 ### Hardware:
-- [Adafruit ESP8266](https://www.adafruit.com/product/2821)
-- [Bosch Sensortec BME280](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266?view=all)
+- [Adafruit ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266?view=all)
+- [SHT31 sensor](https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout?view=all)
 - [Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 

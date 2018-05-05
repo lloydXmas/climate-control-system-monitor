@@ -1,12 +1,15 @@
 html, body {
+
     height: 100%;  
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 body {
   display: flex;
   flex-direction: column;
 }
+
 
 /*NAVBAR*/
 .navbar {
@@ -20,6 +23,7 @@ body {
 a {
     color: #57A4DA;
 }
+
 .contents {
     flex: 1 0 auto;
 }
@@ -48,12 +52,19 @@ svg rect:hover {
     margin-bottom: 80px;
 }
 
+/* footer styles*/
+.push {
+    margin-bottom: 80px;
+}
+
 #footer {
+
     min-height: 5rem;
     color: white;
     flex-shrink: 0;
     opacity: 0.95;
     padding-top:1rem;
+
 }
 
 #dc_logo {
@@ -77,17 +88,16 @@ svg rect:hover {
     /*border: 5px solid #f75718;*/
     box-shadow: 0px 0px 28px -4px rgba(110,110,110,1);
 
-    
 }
 
 #temp {
-    background-color: #3d76d3;
-    border-color: #3d76d3;
+    background-color: #8ab5ff;
+    border-color: #8ab5ff;
 }
 
 #humidity {
-    background-color: #79dd5a;
-    border-color: #79dd5a;
+    background-color: #F6C387;
+    border-color: #F6C387;
 }
 
 #pressure {
@@ -147,15 +157,15 @@ svg rect:hover {
 }
 
 .highest {
-    background-color: #ff7800;
+    background-color: #ff94a2;
 }
 
 .middle {
-    background-color: #8aff00;
+    background-color: #e9ff8f;
 }
 
 .lowest {
-    background-color: #00d4ff;
+    background-color: #8ab5ff;
 }
 /*** Detail Page ***/
 
@@ -212,6 +222,61 @@ svg rect:hover {
     left: 12%;
 }
 
+
+.detail-nav ul li a:hover {
+    color : #4CAF50;
+}
+.wall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#8ab5ff, white);
+    height: 100%;
+}
+.wall>p{
+    font-size: 25px;
+}
+#main-container{
+    display: none;
+}
+#button:hover{
+    cursor: pointer;
+
+/* detail control button styles*/
+
+#detail-content {
+    position: relative;    
+}
+
+.button-control {
+    position: absolute;
+    top: 43%;
+}
+
+.button-control h6 {
+    color: #333;
+}
+
+.button-control:hover {
+    text-decoration: none;    
+}
+
+.button-control img {
+    width: 60%;
+    opacity: 0.7;
+}
+
+.button-control img:hover {
+    cursor: pointer;
+}
+
+#previous {
+    left: 12%;
+}
+
 #next {
     right: 12%;
+
 }
+
