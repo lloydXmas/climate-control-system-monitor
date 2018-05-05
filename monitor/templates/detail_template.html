@@ -1,19 +1,10 @@
-{% extends "base.html" %} {% block title %}Details{% endblock %} {% block meta %}
-<meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}" data-date="{{ date }}"> {% endblock %} {% block content %}
-<div class="container text-center">
-	<div class="detail-nav">
-	<div class="detail-logo">
-		<img alt="logo" src="/static/images/logo.png" width="40" height="40">
-		<h5>Home Climate Monitor</h5>
-	</div>
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/detail/bedroom/2018-05-01">Bedroom</a></li>
-		<li><a href="/detail/livingroom/2018-05-01">Livingroom</a></li>
-		<li><a href="/detail/office/2018-05-01">Office</a></li>
-		<li><a href="/detail/kitchen/2018-05-01">Kitchen</a></li>
-	</ul>
-	</div>
+{% extends "base.html" %} 
+{% block title %}{{ slug|capitalize }}{% endblock %} 
+{% block meta %}
+<meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}" data-date="{{ date }}"> 
+{% endblock %}
+{% block content %}
+<div id="detail-content">
 	<div class="detail-figure">
 		<div class="container detail-info">
 			<h6>{{ slug|capitalize }}</h6>
@@ -21,16 +12,12 @@
 		</div>
 		<div id="{{ slug + '_detail' }}" style="min-width: 310px; max-width: 650px; height: 360px; margin: 0 auto"></div>
 	</div>
+	<a class="button-control" id="previous" href="/detail/{{ slug }}/{{ yesterday }}"><h6>Previous Day</h6><i class="fas fa-chevron-left"></i></a>
+  	<a class="button-control" id="next" href="/detail/{{ slug }}/{{ tomorrow }}"><h6>Next Day</h6><i class="fas fa-chevron-right"></i></a>
 </div>
-<div class="container detail-control-panel">
-	<span><a id="previous" href="/detail/{{ slug }}/{{ yesterday }}">&#8678;</a></span>
-	<span><a id="next" href="/detail/{{ slug }}/{{ tomorrow }}">&#x21E8;</a></span>
-</div>
-{% endblock %} {% block footer %}
-<footer class="container text-center footer" id="footer">
-	footer
-</footer>
-{% endblock %} {% block dependencies %}
+
+{% endblock %}  
+{% block dependencies %}
 <script src="/static/js/highcharts.js"></script>
 <script src="/static/js/highchart_modules/exporting.js"></script>
 <script src="/static/js/highchart_modules/export-data.js"></script>

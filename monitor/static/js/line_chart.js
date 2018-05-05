@@ -194,7 +194,7 @@ $(document).ready(function() {
 			enabled: false
 		},
 		exporting: {
-			enabled: true
+			enabled: false
 		},
 		xAxis: {
 			type: 'datetime',

@@ -101,15 +101,11 @@ $(document).ready(function() {
     console.log(today);
     console.log(moment().format('YYYY-MM-DD'));
     if (today == moment().format('YYYY-MM-DD')) {
-        $('#next').click(function(e) {
-            e.preventDefault();
-            $('#next').attr('title', "It's the newest already");
-});
+            $('#next').css('visibility', "hidden");
+
     }
     else if (today == '2018-04-30') {
-        $('#previous').click(function(e) {
-            e.preventDefault();
-            $('#previous').attr('title', "No more data");
-});
+            $('#previous').css('visibility', "hidden");
     }
+
 });

@@ -1,124 +1,121 @@
 {% extends "base.html" %}
-{% block title %}Main{% endblock %}
+{% block title %}Home Monitor{% endblock %}
 {% block meta %}
 <meta id="my-data" data-last="{{ response }}">
 {% endblock %}
 {% block content %}
-<div class="container text-center">
-	<div class="logo-panel">
-		<img alt="logo" src="/static/images/logo.png" width="80" height="80">
-		<h4>Home Climate Monitor</h4>
-	</div>
-	<br>
-	<div id="info-panel">
-		<p id="current_time"></p>
-		<p>Houston: {{ local_weather }}°F</p>
-		<div id="myCarousel" class="carousel slide">
-			<!--carousel indicators-->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active" id="temp"></li>
-				<li data-target="#myCarousel" data-slide-to="1" id="humidity"></li>
-			</ol>
-			<!--carousel slides  -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div>
-					  <div class="upper-panel">
-						<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
-              <g>
-              <title>background</title>
-              <rect fill="#fff" id="canvas_background" height="202" width="202" y="-1" x="-1"/>
-              <g display="none" id="canvasGrid">
-              <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_1"/>
-              </g>
-              </g>
-              <g>
-              <title>Layer 1</title>
-              <g stroke="null" id="svg_3">
-              <a xlink:href="/detail/bedroom/2018-05-01"><rect id="field1" stroke="#000" id="svg_2" height="53.65019" width="79" y="19.5" x="21.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/office/2018-05-01"><rect id="field7" stroke="#000" id="svg_4" height="53.65019" width="79" y="19.5" x="100.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/livingroom/2018-05-01"><rect id="field3" stroke="#000" id="svg_5" height="75.74144" width="107.62319" y="73.78137" x="21.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/kitchen/2018-05-01"><rect id="field5" stroke="#000" id="svg_6" height="55.54372" width="50.37681" y="73.78137" x="129.12319" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/></a>
-              <rect stroke="#000" id="svg_7" height="55.54372" width="50.37681" y="129.95627" x="129.12319" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
-              <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_8" y="49" x="34.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Bedroom</text>
-              <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_9" y="49" x="123.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Office</text>
-              <text xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_10" y="112.5" x="43.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Livingroom</text>
-              <text xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_11" y="103.5" x="134.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Kitchen</text>
-              </g>
-              </g>
-            </svg>
+<div class="row mt-2">
+  <div class="col-sm-12">
+    <div class="mx-auto">
+      <img alt="logo" src="/static/images/logo.png" width="80" height="80">
+      <h4>Home Climate Monitor</h4>
+      <hr />
+      <p id="current_time"><br />
+      <p>Houston: {{ local_weather }}°F</p>
+    </div>
+  </div>
+</div>  <!-- End Row -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row mt-5">
+        <div class="col-md-6 col-sm-12">
+          <div class="upper-panel">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <svg version="1.1" id="floorplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 313.6 333" enable-background="new 0 0 313.6 333" xml:space="preserve">
+						    <a xlink:href="/detail/bedroom/{{ current_date }}"><rect id="field1" x="1.5" y="1.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="156" height="106.4"/></a>
+						    <a xlink:href="/detail/office/{{ current_date }}"><rect id="field7" x="157.5" y="1.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="154.6" height="106.4"/></a>
+						    <a xlink:href="/detail/livingroom/{{ current_date }}"><rect id="field3" x="1.5" y="107.9" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="212.8" height="154.6"/></a>
+						    <a xlink:href="/detail/kitchen/{{ current_date }}"><rect id="field5" x="214.3" y="107.9" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="97.8" height="111.4"/></a>
+						    <rect x="214.3" y="219.3" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="97.8" height="112.2"/>
+						    <text transform="matrix(1 0 0 1 38.968 60.8677)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Bedroom</text>
+						    <text transform="matrix(1 0 0 1 57.726 191.3578)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Livingroom</text>
+						    <text transform="matrix(1 0 0 1 208.9339 60.8677)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Office</text>
+						    <text transform="matrix(1 0 0 1 229.9073 169.7892)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Kitchen</text>
+								</svg>
             <div>
               <ul class="legends">
-                <li><div class="blocktest highest"></div>Highest</li>
-                <li><div class="blocktest middle"></div></li>
-                <li><div class="blocktest lowest"></div>Lowest</li>
+                <li>
+                  <div class="blocktest highest"></div>Highest</li>
+                <li>
+                  <div class="blocktest middle"></div>
+                </li>
+                <li>
+                  <div class="blocktest lowest"></div>Lowest</li>
               </ul>
             </div>
-            </div>
-						<div id="temp_bar_figure" style="min-width: 310px; max-width: 650px; height: 250px; margin: 0 auto"></div>
-						<div id="temp_line_chart" style="width:80%; height:450px; margin: 0 auto"></div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div>
-					  <div class="upper-panel">
-						<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-              <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
-              <g>
-              <title>background</title>
-              <rect fill="#fff" id="canvas_background" height="202" width="202" y="-1" x="-1"/>
-              <g display="none" id="canvasGrid">
-              <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_1"/>
-              </g>
-              </g>
-              <g>
-              <title>Layer 1</title>
-              <g stroke="null" id="svg_3">
-              <a xlink:href="/detail/bedroom/2018-05-01"><rect id="field2" stroke="#000" id="svg_2" height="53.65019" width="79" y="19.5" x="21.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/office/2018-05-01"><rect id="field8" stroke="#000" id="svg_4" height="53.65019" width="79" y="19.5" x="100.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/livingroom/2018-05-01"><rect id="field4" stroke="#000" id="svg_5" height="75.74144" width="107.62319" y="73.78137" x="21.5" stroke-width="1.5" fill="#fff"/></a>
-              <a xlink:href="/detail/kitchen/2018-05-01"><rect id="field6" stroke="#000" id="svg_6" height="55.54372" width="50.37681" y="73.78137" x="129.12319" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/></a>
-              <rect stroke="#000" id="svg_7" height="55.54372" width="50.37681" y="129.95627" x="129.12319" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#fff"/>
-              <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_8" y="49" x="34.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Bedroom</text>
-              <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_9" y="49" x="123.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Office</text>
-              <text xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_10" y="112.5" x="43.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Livingroom</text>
-              <text xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_11" y="103.5" x="134.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Kitchen</text>
-              </g>
-              </g>
-            </svg>
-            <div>
-              <ul class="legends">
-                <li><div class="blocktest highest"></div>Highest</li>
-                <li><div class="blocktest middle"></div></li>
-                <li><div class="blocktest lowest"></div>Lowest</li>
-              </ul>
-              </div>
-            </div>
-						<div id="humidity_bar_figure" style="min-width: 310px; max-width: 650px; height: 250px; margin: 0 auto"></div>
-						<div id="humidity_line_chart" style="width:80%; height:450px; margin: 0 auto"></div>
-					</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div id="temp_bar_figure" class="float-left" style="height: 250px; margin: 0 auto"></div>
+        </div>
+      </div> <!-- End Row -->
+			<div class="row">
+        <div class="col-12" style="height:3rem;">
 				</div>
 			</div>
-			<!--control buttons  -->
-      <a class="carousel-control-prev" role="button" href="#myCarousel" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-			<a class="carousel-control-next" role="button" href="#myCarousel" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-		</div>
-	</div>
+      <div class="row mt-6">
+        <div class="col-12">
+          <div id="temp_line_chart" style="width:80%; height:450px; margin: 0 auto"></div>
+        </div>
+      </div> <!-- End Row -->
+    </div>
+    <div class="carousel-item">
+      <div class="row mt-5">
+        <div class="col-md-6 col-sm-12">
+          <div class="upper-panel">
+            <svg version="1.1" id="floorplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 313.6 333" enable-background="new 0 0 313.6 333" xml:space="preserve">
+						    <a xlink:href="/detail/bedroom/{{ current_date }}"><rect id="field2" x="1.5" y="1.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="156" height="106.4"/></a>
+						    <a xlink:href="/detail/office/{{ current_date }}"><rect id="field8" x="157.5" y="1.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="154.6" height="106.4"/></a>
+						    <a xlink:href="/detail/livingroom/{{ current_date }}"><rect id="field4" x="1.5" y="107.9" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="212.8" height="154.6"/></a>
+						    <a xlink:href="/detail/kitchen/{{ current_date }}"><rect id="field6" x="214.3" y="107.9" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="97.8" height="111.4"/></a>
+						    <rect x="214.3" y="219.3" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" width="97.8" height="112.2"/>
+						    <text transform="matrix(1 0 0 1 38.968 60.8677)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Bedroom</text>
+						    <text transform="matrix(1 0 0 1 57.726 191.3578)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Livingroom</text>
+						    <text transform="matrix(1 0 0 1 208.9339 60.8677)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Office</text>
+						    <text transform="matrix(1 0 0 1 229.9073 169.7892)" font-family="'ArialMT', Oswald, sans-serif" font-size="21.0047px">Kitchen</text>
+								</svg>
+
+              <ul class="legends">
+                <li>
+                  <div class="blocktest highest"></div>Highest</li>
+                <li>
+                  <div class="blocktest middle"></div>
+                </li>
+                <li>
+                  <div class="blocktest lowest"></div>Lowest</li>
+              </ul>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div id="humidity_bar_figure" class="float-left" style="height: 350px; margin: 0 auto"></div>
+        </div>
+      </div> <!-- End Row -->
+			<div class="row">
+        <div class="col-12" style="height:3rem;">
+				</div>
+			</div>
+      <div class="row mt-6">
+        <div class="col-12">
+          <div id="humidity_line_chart" style="width:80%; height:450px; margin: 0 auto"></div>
+        </div>
+      </div> <!-- End Row -->
+    </div>
+  </div>
+	<a class="carousel-control-prev" role="button" href="#myCarousel" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+	<a class="carousel-control-next" role="button" href="#myCarousel" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 </div>
-{% endblock %}
+<div class="push"></div>
 
-{% block footer %}
-<footer class="container text-center footer" id="footer">
-</footer>
 {% endblock %}
-
 {% block dependencies %}
 <script src="/static/js/highstock.js"></script>
 <script src="/static/js/highchart_modules/exporting.js"></script>
