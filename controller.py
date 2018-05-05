@@ -6,7 +6,6 @@ import time
 from datetime import datetime, date, timedelta
 import requests
 import queries
-import json
 
 from jinja2 import \
     Environment, PackageLoader, select_autoescape
@@ -42,10 +41,7 @@ class MainHandler(TemplateHandler):
         weather_url = 'http://api.openweathermap.org/data/2.5/weather'
         weather_payload = {'q': 'Houston', 'appid': appid, 'units': 'imperial'}
         r_weather = requests.get(weather_url, params=weather_payload)
-
-        c = json.loads(r_weather.text)
-        print(json.dumps(c, indent=2))
-        
+       
         local_weather = r_weather.json()['main']['temp']
         self.render_template("main.html", {'response': r.json(), 'local_weather': local_weather})
 
