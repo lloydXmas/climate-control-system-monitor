@@ -38,7 +38,6 @@ svg rect:hover {
     color: white;
     flex-shrink: 0;
     opacity: 0.95;
-    display: none;
 }
 
 #dc_logo {
