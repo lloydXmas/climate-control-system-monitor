@@ -107,12 +107,5 @@ $(document).ready(function() {
     else if (today == '2018-04-30') {
             $('#previous').css('visibility', "hidden");
     }
-// add hover effect for control buttons    
-    $(".button-control").hover(function(){
-        $(this).find("h6").css("text-shadow", "1px 1px 1px orange");
-    },
-        function() {
-            $(this).find("h6").css("text-shadow", "0 0 0 white");
-        }
-    );
+
 });
