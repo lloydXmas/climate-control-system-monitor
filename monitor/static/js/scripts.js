@@ -1,9 +1,10 @@
 $(document).ready(function(){
   $("#button").click(function(){
-    $(".good-button").fadeOut({
+    $(".good-button").hide({
     });
-    $(".container").css("display", "block");
-    $(".wall").fadeOut();
+    $("#main-container").css("display", "block");
+    $("#footer").css("display", "block");
+    $(".wall").hide();
   });
 
   

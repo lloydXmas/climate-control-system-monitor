@@ -124,11 +124,11 @@ $(document).ready(function(){
             return a['value'] - b['value'];
         });
         console.log(arr);
-        $(arr[0]['dom']).css('fill', '#00d4ff');
-        $(arr[arr.length-1]['dom']).css('fill', '#ff7800');
+        $(arr[0]['dom']).css('fill', '#8ab5ff');
+        $(arr[arr.length-1]['dom']).css('fill', '#ff94a2');
         var rest = arr.slice(1, arr.length-1);
         rest.forEach(function (item) {
-            $(item['dom']).css('fill', '#8aff00');
+            $(item['dom']).css('fill', '#e9ff8f');
         });
     }
     compareData([field1, field3, field5, field7]);

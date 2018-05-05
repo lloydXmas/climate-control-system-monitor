@@ -38,6 +38,7 @@ svg rect:hover {
     color: white;
     flex-shrink: 0;
     opacity: 0.95;
+    display: none;
 }
 
 #dc_logo {
@@ -122,15 +123,15 @@ svg rect:hover {
 }
 
 .highest {
-    background-color: #ff7800;
+    background-color: #ff94a2;
 }
 
 .middle {
-    background-color: #8aff00;
+    background-color: #e9ff8f;
 }
 
 .lowest {
-    background-color: #00d4ff;
+    background-color: #8ab5ff;
 }
 /*** Detail Page ***/
 
@@ -194,9 +195,15 @@ svg rect:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#8ab5ff, white);
+    height: 100%;
 }
 .wall>p{
     font-size: 25px;
+}
+#main-container{
+    display: none;
 }
 #button:hover{
     cursor: pointer;
