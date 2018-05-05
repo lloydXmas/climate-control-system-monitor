@@ -61,13 +61,13 @@ svg rect:hover {
 }
 
 #temp {
-    background-color: #3d76d3;
-    border-color: #3d76d3;
+    background-color: #8ab5ff;
+    border-color: #8ab5ff;
 }
 
 #humidity {
-    background-color: #79dd5a;
-    border-color: #79dd5a;
+    background-color: #F6C387;
+    border-color: #F6C387;
 }
 
 #pressure {
