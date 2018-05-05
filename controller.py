@@ -33,25 +33,16 @@ class MainHandler(TemplateHandler):
         super().get()
 # api request setup
         url = "https://api.thingspeak.com/channels/484266/feeds/last.json"
-        api_key = os.environ.get('ThingSpeak_API_KEY') #sakhdflsd
+        api_key = os.environ.get('ThingSpeak_API_KEY')
         timezone = "America/Chicago"
         payload = {'api_key': api_key, 'timezone': timezone}
         r = requests.get(url, params=payload)
-        """
-        Need the next 2 lines to see whats going on
-        """
-        print('*'*50)
-        print(r.text)
         
         appid = os.environ.get('OpenWeather_APPID')
         weather_url = 'http://api.openweathermap.org/data/2.5/weather'
         weather_payload = {'q': 'Houston', 'appid': appid, 'units': 'imperial'}
         r_weather = requests.get(weather_url, params=weather_payload)
-        """
-        Need the next 4 lines to see whats going on
-        """
-        print('*'*50)
-        print(r_weather.json())
+
         c = json.loads(r_weather.text)
         print(json.dumps(c, indent=2))
         
@@ -83,7 +74,6 @@ class DetailHandler(TemplateHandler):
         for detail in details:
             temps.append(float(detail[fieldTemp]))
             humis.append(float(detail[fieldHumi]))
-            temps=[54,23,1,3]
         self.render_template("detail_template.html", {'slug': slug, 'temps': temps, 'humis': humis, 'date': date, 'yesterday': yesterday, 'tomorrow': tomorrow})
     
 
