@@ -14,12 +14,12 @@ Home CC Monitor is a real-time IoT monitoring application for home climates that
 ## Minimum Viable Product
 - [X] Maintain a database of organized temperature data from an API feed which is displayed on the front-end.
 - [X] Visualization of current temperature data per room.
-- [ ] Visualization of historical temperature data.
+- [X] Visualization of historical temperature data.
 
 The project consists of minimal hardware and full stack deployment of Python/Javascript/jQuery/PostgreSQL.
 
 ## Stretch Goals
-- [ ] Compare overall data to local weather conditions using a local weather API.
+- [X] Compare overall data to local weather conditions using a local weather API.
 - [ ] Create customizable alerts for rooms that exceed or fall below set values.
   - [ ] Integrate alerts with IFTTT Service
 - [ ] Make the application scalable using unique ID’s and passwords for multiple users.
@@ -53,7 +53,7 @@ where `get_latest.py` and `pipenv` are full paths. The script retrieves updated 
 
 
 ## Built With
-![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![heroku icon](readme-img/heroku.png) Heroku &nbsp;|&nbsp; ![matlab icon](readme-img/matlab.png) ThingSpeak
+![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![NGINX](readme-img/NGINX.png) NGINX &nbsp;|&nbsp; ![matlab icon](readme-img/matlab.png) ThingSpeak
 
 ![html5 icon](readme-img/html5.png) HTML5 &nbsp;|&nbsp;  ![javascript icon](readme-img/javascript.png) JavaScript &nbsp;|&nbsp; ![jinja icon](readme-img/jinja.png) Jinja2 &nbsp;|&nbsp; ![jquery icon](readme-img/jquery.png) jQuery
 
