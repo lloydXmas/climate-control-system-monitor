@@ -1,3 +1,16 @@
+html, body {
+    height: 100%;    
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.contents {
+    flex: 1 0 auto;
+}
+
 .logo-panel {
     display: flex;
     justify-content: center;
@@ -13,13 +26,37 @@ svg rect:hover {
     cursor: pointer;
 }
 
+/* footer styles*/
+.push {
+    margin-bottom: 80px;
+}
+
 #footer {
-    bottom:0;
-    width:100%;
-    height:4rem;   /* Height of the footer */
-    /*background:#6cf;*/
-    left: 0;
-    right: 0;
+    background: linear-gradient(141deg, #6dbaf2 0%, #9ed2d8 51%, #064f6b 75%);
+    min-height: 70px;
+    padding: 10px;
+    color: white;
+    flex-shrink: 0;
+    opacity: 0.95;
+}
+
+#dc_logo {
+    width: 38%;
+}
+
+#app_logo {
+    width: 25%;    
+}
+
+.avatar {
+    width: 14%;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.avatar:hover {
+    width: 20%;
+    border: 5px solid #f75718;    
 }
 
 #temp {
@@ -162,7 +199,7 @@ svg rect:hover {
 
 .button-control {
     position: absolute;
-    top: 63%;
+    top: 43%;
 }
 
 .button-control h6 {

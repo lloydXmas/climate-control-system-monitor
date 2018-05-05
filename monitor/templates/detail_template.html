@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block title %}Details{% endblock %} {% block meta %}
 <meta id="detail-data" data-temp="{{ temps }}" data-humi="{{ humis }}" data-total="{{ details }}" data-slug="{{ slug }}" data-date="{{ date }}"> {% endblock %} {% block content %}
-<div class="container text-center" id="detail-content">
+<div class="container text-center contents" id="detail-content">
 	<div class="detail-nav">
 	<div class="detail-logo">
 		<img alt="logo" src="/static/images/logo.png" width="40" height="40">
@@ -27,11 +27,8 @@
 
   
 </div>
-{% endblock %} {% block footer %}
-<footer class="container text-center footer" id="footer">
-	footer
-</footer>
-{% endblock %} {% block dependencies %}
+{% endblock %}  
+{% block dependencies %}
 <script src="/static/js/highcharts.js"></script>
 <script src="/static/js/highchart_modules/exporting.js"></script>
 <script src="/static/js/highchart_modules/export-data.js"></script>
