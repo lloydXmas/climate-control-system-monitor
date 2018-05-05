@@ -53,7 +53,7 @@ where `get_latest.py` and `pipenv` are full paths. The script retrieves updated 
 
 
 ## Built With
-![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![heroku icon](readme-img/heroku.png) Heroku &nbsp;|&nbsp; ![matlab icon](readme-img/matlab.png) ThingSpeak
+![bootstrap icon](readme-img/bootstrap.png) Bootstrap &nbsp;|&nbsp; ![css3 icon](readme-img/css3.png) CSS3 &nbsp;|&nbsp; ![NGINX](readme-img/NGINX.png) NGINX &nbsp;|&nbsp; ![matlab icon](readme-img/matlab.png) ThingSpeak
 
 ![html5 icon](readme-img/html5.png) HTML5 &nbsp;|&nbsp;  ![javascript icon](readme-img/javascript.png) JavaScript &nbsp;|&nbsp; ![jinja icon](readme-img/jinja.png) Jinja2 &nbsp;|&nbsp; ![jquery icon](readme-img/jquery.png) jQuery
 
