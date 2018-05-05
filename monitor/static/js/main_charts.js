@@ -64,7 +64,7 @@ $(document).ready(function(){
         series: [{
             name: `Latest Update: ${latestTime}`,
             data: [field1['value'], field3['value'], field5['value'], field7['value']],
-            color: '#3d76d3'
+            color: '#7fbbff'
         }]
     });
     
@@ -114,7 +114,7 @@ $(document).ready(function(){
         series: [{
             name: `Latest Update: ${latestTime}`,
             data: [field2['value'], field4['value'], field6['value'], field8['value']],
-            color: '#79dd5a'
+            color: '#ffc27d'
         }]
     }); 
     
