@@ -60,13 +60,13 @@ svg rect:hover {
 }
 
 #temp {
-    background-color: #3d76d3;
-    border-color: #3d76d3;
+    background-color: #8ab5ff;
+    border-color: #8ab5ff;
 }
 
 #humidity {
-    background-color: #79dd5a;
-    border-color: #79dd5a;
+    background-color: #F6C387;
+    border-color: #F6C387;
 }
 
 #pressure {
@@ -122,15 +122,15 @@ svg rect:hover {
 }
 
 .highest {
-    background-color: #ff7800;
+    background-color: #ff94a2;
 }
 
 .middle {
-    background-color: #8aff00;
+    background-color: #e9ff8f;
 }
 
 .lowest {
-    background-color: #00d4ff;
+    background-color: #8ab5ff;
 }
 /*** Detail Page ***/
 
@@ -190,6 +190,22 @@ svg rect:hover {
 .detail-nav ul li a:hover {
     color : #4CAF50;
 }
+.wall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#8ab5ff, white);
+    height: 100%;
+}
+.wall>p{
+    font-size: 25px;
+}
+#main-container{
+    display: none;
+}
+#button:hover{
+    cursor: pointer;
 
 /* detail control button styles*/
 
@@ -225,4 +241,5 @@ svg rect:hover {
 
 #next {
     right: 12%;
+
 }
