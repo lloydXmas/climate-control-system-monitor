@@ -153,3 +153,39 @@ svg rect:hover {
 .detail-nav ul li a:hover {
     color : #4CAF50;
 }
+
+/* detail control button styles*/
+
+#detail-content {
+    position: relative;    
+}
+
+.button-control {
+    position: absolute;
+    top: 63%;
+}
+
+.button-control h6 {
+    color: #333;
+}
+
+.button-control:hover {
+    text-decoration: none;    
+}
+
+.button-control img {
+    width: 60%;
+    opacity: 0.7;
+}
+
+.button-control img:hover {
+    cursor: pointer;
+}
+
+#previous {
+    left: 12%;
+}
+
+#next {
+    right: 12%;
+}
